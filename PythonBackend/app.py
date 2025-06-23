@@ -3,7 +3,10 @@ from sqlalchemy import text, and_, or_
 from database import SessionLocal, HistoricalDocument
 
 app = Flask(__name__)
-
+@app.route("/")
+def home():
+    return "Welcome to the Historical Documents API. Use /search to query data."
+    
 @app.route("/search")
 def search():
     query = request.args.get("query", "").strip()
